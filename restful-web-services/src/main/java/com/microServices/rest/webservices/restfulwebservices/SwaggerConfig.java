@@ -32,4 +32,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder().title("My API").version("1.0.0").contact(DEFAULT_CONTACT).build();
     }
+
+
+
 }
