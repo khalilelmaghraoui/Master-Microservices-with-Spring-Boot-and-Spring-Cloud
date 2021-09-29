@@ -11,16 +11,23 @@ import org.springframework.web.bind.annotation.RestController;
 public class CurrencyExchangeController {
 
     @Autowired
+    private CurrencyExchangeRepo repo;
+
+    @Autowired
     private Environment environment;
 
 
     @GetMapping("/currencyExchange/from/{from}/to/{to}")
     public CurrencyExchange retrieveExchangeValue(@PathVariable String from, @PathVariable String to){
 
-        CurrencyExchange cur =new CurrencyExchange(1000L,from,to, 59);
+//        CurrencyExchange cur =new CurrencyExchange(1000L,from,to, 59);
+//        CurrencyExchange currencyExchange = repo.findByFromAndTo()
         String port = environment.getProperty("local.server.port");
-        cur.setEnv(port);
-        return cur;
+
+      CurrencyExchange currencyExchange= repo.findByFromAndTo(from,to);
+
+        currencyExchange.setEnv(port);
+        return currencyExchange;
 
     }
 

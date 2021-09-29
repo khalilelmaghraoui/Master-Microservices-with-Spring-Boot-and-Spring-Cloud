@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-
 public class CurrencyExchange {
 
     @Id
@@ -25,10 +24,6 @@ public class CurrencyExchange {
     private int conversionMultiple;
 
     private String env;
-
-
-
-
 
 
     public CurrencyExchange(Long id, String from, String to, int conversionMultiple) {
